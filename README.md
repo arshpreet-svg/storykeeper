@@ -6,6 +6,8 @@ of where the papers and keys are, a recipe book, and a memoir.
 
 > Built for the *Build, Ship, Shape: Amazon Developer Hackathon*. Track: **Alexa+ (self-hosted MCP server)**.
 > Mini challenges: **AWS Builder** (Amazon Nova on Amazon Bedrock) and **Open Source** (MIT).
+>
+> **Try it live:** https://storykeeper-ivory.vercel.app · MCP endpoint: `https://storykeeper-ivory.vercel.app/mcp`
 
 ## Why
 
