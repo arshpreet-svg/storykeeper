@@ -1,5 +1,6 @@
 """Smoke-test the Storykeeper MCP server over Streamable HTTP: python scripts/mcp_smoke.py [url]"""
 import asyncio
+import os
 import sys
 
 from mcp import Client
@@ -16,4 +17,4 @@ async def main(url: str):
             print(f"\n{name} ->", (res.structured_content or res.content[0].text).__str__()[:400])
 
 
-asyncio.run(main(sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8787/mcp"))
+asyncio.run(main(sys.argv[1] if len(sys.argv) > 1 else os.environ.get("MCP_URL", "http://127.0.0.1:8787/mcp")))

@@ -18,7 +18,7 @@ NOVA_MODEL = os.environ.get("NOVA_MODEL", "us.amazon.nova-2-lite-v1:0")
 REGION = os.environ.get("AWS_REGION", "us-east-1")
 USE_BEDROCK = os.environ.get("STORYKEEPER_MODE", "bedrock") == "bedrock"
 
-status = {"engine": "bedrock" if USE_BEDROCK else "offline", "model": NOVA_MODEL, "region": REGION, "last_error": None}
+status = {"engine": "bedrock" if USE_BEDROCK else "offline", "model": NOVA_MODEL if USE_BEDROCK else None, "region": REGION, "last_error": None}
 _runtime = None
 
 

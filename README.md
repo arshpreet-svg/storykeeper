@@ -103,6 +103,16 @@ STORYKEEPER_MODE=offline .venv/bin/python -m storykeeper.server
   the model or the database, provenance tagging, conflict detection, the gap ranking, photo/voice upload checks,
   the approval workflow and the family graph.
 
+### Deploy on Vercel
+
+`vercel deploy` uses `api/index.py` and `vercel.json`: the same app as a serverless function, with the MCP endpoint
+in stateless mode (JSON responses) at `https://<your-app>.vercel.app/mcp`. Serverless storage is temporary, so the
+archive lives in `/tmp`, is seeded with the demo family on each cold start, and visitor changes don't persist. The
+Vercel deployment runs in offline mode unless you add AWS credentials as environment variables and set
+`STORYKEEPER_MODE=bedrock`. Smoke test: `.venv/bin/python scripts/mcp_smoke.py https://<your-app>.vercel.app/mcp`.
+
+### Persistent hosting
+
 Set `HOST=0.0.0.0` and `PORT` to deploy publicly (for example Render, Railway or AWS App Runner), then register the
 public `https://…/mcp` URL as the MCP server for Alexa+ or any MCP client.
 
